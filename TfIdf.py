@@ -34,6 +34,7 @@ class TfIdf:
             list_of_words = doc[1]
             for w in list_of_words:
                 # updating docs having the word w; later to be used to calculate idf of word w
+                # 统计单词在idf = 单词在文章级别出现过的频次
                 if (doc_dict.get(w, 0.) == 0):
                     self.idf[w] = self.idf.get(w, 0.0) + 1.0
                 else:
@@ -65,7 +66,7 @@ class TfIdf:
         """compute cosine similarity of v1 to v2: (v1 dot v2)/{||v1||*||v2||)"""
         sumxx, sumxy, sumyy = 0, 0, 0
         for i in range(len(v1)):
-            x = v1[i];
+            x = v1[i]
             y = v2[i]
             sumxx += x * x
             sumyy += y * y
